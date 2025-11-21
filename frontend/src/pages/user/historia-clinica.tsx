@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { saveHistoriaClinica } from '@/lib/api/userApi'
-import { ArrowLeft, ArrowRight, Check } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Check, Home } from 'lucide-react'
 import ProgressSteps from '@/components/ui/ProgressSteps'
 
 type Step = 1 | 2 | 3 | 4
@@ -109,10 +109,28 @@ export default function HistoriaClinica() {
     <div className="min-h-screen bg-[#FAFAFA]">
       {/* Header */}
       <header className="bg-white shadow-sm px-12 py-6 flex justify-between items-center">
-        <div className="text-2xl font-black text-[#7B6BA8]">BioChain</div>
-        <div className="flex items-center gap-3 px-5 py-3 bg-[#FAFAFA] rounded-full">
-          <div className="w-9 h-9 bg-[#FF6B35] rounded-full flex items-center justify-center text-lg">👤</div>
-          <span className="text-sm text-gray-600">usuario@email.com</span>
+        <div className="flex items-center gap-4">
+          <Link
+            to="/user/dashboard"
+            className="text-gray-600 hover:text-stellar-primary transition flex items-center gap-2"
+          >
+            <ArrowLeft className="w-5 h-5" />
+            <span>Volver</span>
+          </Link>
+          <div className="text-2xl font-black text-[#7B6BA8]">BioChain</div>
+        </div>
+        <div className="flex items-center gap-4">
+          <Link
+            to="/"
+            className="text-gray-600 hover:text-stellar-primary transition flex items-center gap-2"
+          >
+            <Home className="w-5 h-5" />
+            <span>Inicio</span>
+          </Link>
+          <div className="flex items-center gap-3 px-5 py-3 bg-[#FAFAFA] rounded-full">
+            <div className="w-9 h-9 bg-[#FF6B35] rounded-full flex items-center justify-center text-lg">👤</div>
+            <span className="text-sm text-gray-600">usuario@email.com</span>
+          </div>
         </div>
       </header>
 
